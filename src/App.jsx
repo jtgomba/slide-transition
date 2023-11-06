@@ -1,19 +1,22 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { Home, Photo } from "./pages"
-
 function App() {
+  const location = useLocation();
 
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="photo/:id" element={<Photo />} />
-          </Route>
+    <main>
+      <div className="frame">
+        <div className="frame__title">
+        </div>
+      </div>
+      <AnimatePresence mode='wait'>
+        <Routes location={location} key={location.pathname}>
+          <Route index element={<Home />} />
+          <Route path="photo/" element={<Photo />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </AnimatePresence>
+    </main>
   )
 }
 

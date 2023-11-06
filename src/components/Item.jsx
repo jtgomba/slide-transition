@@ -9,19 +9,21 @@ const Item = ({ data }) => {
             <h2 className="item__title">{title}</h2>
             <div className="item__img"><div className="item__img-inner" style={{ backgroundImage: img }}></div></div>
             <p className="item__desc">{desc}</p>
-            <Link to={`photo/${id}`} className="item__link">view</Link>
+            {/* <Link to={`photo/${id}`} className="item__link">view</Link> */}
+            <Link to='photo' className="item__link">view</Link>
+
         </div>
     )
 }
 
 Item.propTypes = {
-    data: {
+    data: PropTypes.shape({
         meta: PropTypes.string,
         title: PropTypes.string,
         img: PropTypes.string,
         desc: PropTypes.string,
         id: PropTypes.string,
-    }
+    })
 }
 
 export default Item

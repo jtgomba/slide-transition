@@ -1,13 +1,15 @@
+import { useEffect } from "react"
 import { photos } from "../../constants/index"
 import Item from "../../components/Item"
+import TransitionWrapper from "../../components/TransitionWrapper"
 
 const Home = () => {
+    useEffect(() => {
+        document.body.style.backgroundColor = 'var(--color-bg)'
+    }, [])
+
     return (
-        <main>
-            <div className="frame">
-                <div className="frame__title">
-                </div>
-            </div>
+        <TransitionWrapper>
             <div className="content">
                 {photos.map(data => {
                     return (
@@ -15,7 +17,7 @@ const Home = () => {
                     )
                 })}
             </div>
-        </main>
+        </TransitionWrapper>
     )
 }
 
